@@ -49,9 +49,11 @@ router.post('/:id', (req,res) => {
 
 
 router.get('/:id/delete',(req,res,next)=>{
-  Book.findByAndDelete(req.params.id,(err,book)=>{
+  // delete that user
+   var id = req.params.id;
+  user.findByAndDelete(id,(err,deletedUser)=>{
     if(err) return next(err);
-    res.redirect('/books');
+    res.redirect('/users');
   })
 })
 
